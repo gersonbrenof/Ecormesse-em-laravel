@@ -13,7 +13,7 @@ class UsuarioController extends Controller
             // se esntra nesse if e porque o usuaruoi clicar no botao logar
             $login = $request->input("login");
             $senha = $request->input("senha");
-
+            $login = preg_replace("/[^0-9]/", "", $login); 
             $credentials = ['login' => $login, 'password' => $senha];
            
             if(Auth::attempt($credentials)){

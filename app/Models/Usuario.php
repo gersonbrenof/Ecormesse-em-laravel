@@ -36,5 +36,12 @@ class Usuario extends Rmodel implements Authenticatable
     public function getRememberTokenName(){
         
     }
+
+    public function setLoginAttribute($login)
+    {
+        // Corrigido: expressão regular com delimitador de fechamento
+        $value = preg_replace("/[^0-9]/", "", $login); // Remove todos os caracteres que não são números
+        $this->attributes['login'] = $value;
+    }
    
 }
