@@ -18,7 +18,11 @@
                 <a class="nav-item nav-link" href="{{ route('home') }}">HOME</a>
                 <a class="nav-item nav-link" href="{{ route('categoria') }}">Categorias</a>
                 <a class="nav-item nav-link" href="{{ route('cadastrar') }}">Cadastrar</a>
+                @if(!\Auth::user())
                 <a class="nav-item nav-link" href="{{ route('login') }}">Login</a>
+                @else
+                <a class="nav-item nav-link" href="{{ route('sair') }}">Logout</a>
+                @endif
             </div>
         </div>
         <a href="{{route ('ver_carrinho')}}" class="btn btn-sm"><i class="fa fa-shopping-cart"></i></a>
@@ -26,6 +30,12 @@
 
     <div class="container">
         <div class="row">
+            
+            @if(\Auth::user())
+                <div class="col-12">
+                    <p class="text-end">Seja Bem vindo, {{\Auth::user()->nome}},  <a href="{{route('sair')}}">sair</a></p>
+                </div>
+            @endif
             @if(session('err'))
             <div class="col-12">
                 <div class="alert alert-danger">{{ session('err') }}</div>

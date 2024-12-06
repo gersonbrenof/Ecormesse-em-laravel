@@ -32,7 +32,7 @@ class ClienteController extends Controller
       $message = $result['message'];
       $status = $result['status'];
 
-      $request->session()->flash($status, $message);
+        session()->flash($status, $message);
 
       return redirect()->route('cadastrar');
     }
