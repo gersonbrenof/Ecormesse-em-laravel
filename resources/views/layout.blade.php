@@ -21,6 +21,7 @@
                 @if(!\Auth::user())
                 <a class="nav-item nav-link" href="{{ route('login') }}">Login</a>
                 @else
+                <a class="nav-item nav-link" href="{{ route('compara_historico') }}">Minhas Compras</a>
                 <a class="nav-item nav-link" href="{{ route('sair') }}">Logout</a>
                 @endif
             </div>

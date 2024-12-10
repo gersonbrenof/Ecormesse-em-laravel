@@ -1,0 +1,23 @@
+[33mcommit 56e79c5cbedfcf0cf01d1e9eaacb01e86605ff2a[m
+Author: gersonbrenof <gersonfagundese2016@gmail.com>
+Date:   Fri Dec 6 15:41:42 2024 -0300
+
+    Melhorado o sistema de login do backend
+
+[33mcommit 2efc2904465f0f733d2c68decaf2505a53479fca[m
+Author: gersonbrenof <gersonfagundese2016@gmail.com>
+Date:   Tue Dec 3 16:46:49 2024 -0300
+
+    melhrias no coneçao do banco de dados e melhoria com tartamento de erro para o usuario usando try cath
+
+[33mcommit 15c3296638ed0884d2d69b6068bb4fbaf861afb3[m
+Author: gersonbrenof <gersonfagundese2016@gmail.com>
+Date:   Wed Nov 27 17:07:25 2024 -0300
+
+    adcionado masi modelos e melhorias
+
+[33mcommit 2a5551161a1b3da6d9c4fef84340af887a169357[m
+Author: gersonbrenof <gersonfagundese2016@gmail.com>
+Date:   Tue Nov 26 18:22:09 2024 -0300
+
+    adcionado dados no banco de dados de produto e categorias
