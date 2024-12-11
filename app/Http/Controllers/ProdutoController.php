@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Categoria;
+use App\Models\Itens_Pedido;
 use App\Models\Pedido;
 use App\Models\Produto;
 use App\services\VendaService;
@@ -97,5 +98,26 @@ public function historico(Request $request){
     $data["listas"] = $listaPedido;
     return view("compra/historico", $data);
 
+}
+
+
+public function detalhes(Request $request)
+{
+    try {
+        $idpedido = $request->input("idpedido");
+
+        // Corrige a tabela com dois underlines 'itens__pedidos'
+        $listaItens = Itens_Pedido::join("produtos", "produtos.id", "=", "itens__pedidos.produto_id")
+            ->where('pedido_id', $idpedido)
+            ->get(['itens__pedidos.*', 'itens__pedidos.valor as valoritem', 'produtos.*']);
+
+        $data = [];
+        $data["listaItens"] = $listaItens;
+
+        return view("compra/detalhes", $data);
+    } catch (\Exception $e) {
+        // Retorna uma resposta detalhada em caso de erro
+        return response()->json(['error' => 'Erro ao obter detalhes da compra', 'message' => $e->getMessage()], 500);
+    }
 }
 }
